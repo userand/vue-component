@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="//at.alicdn.com/t/font_863855_ugs6oyfz0xj.js"></script>
 </head>
-<body>
 
+<body>
+    
     <div id="app">
-        <a href="ab.html">ss</a>
-        {{message}}
-        <g-button>  按钮 </g-button>
+        <g-button icon="download" iconPosition="left"> 按钮 </g-button>
+        <g-button icon="arrow" iconPosition="right" > 按钮 </g-button>
     </div>
 
-
     <script src="./src/app.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --button-height: 32px;
+            --font-size: 14px;
+            --font-size: 14px;
+            --border-color: red;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+    </style>
+
 </body>
+
 </html>
