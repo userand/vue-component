@@ -11395,7 +11395,14 @@ var _default = {
     icon: {},
     type: {
       type: String,
-      default: 'parimary'
+      default: 'parimary',
+      validator: function validator(value) {
+        return ['parimary', 'success', 'error'].indexOf(value) != -1;
+      }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     loading: {
       type: Boolean,

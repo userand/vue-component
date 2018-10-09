@@ -64,15 +64,27 @@
   background-color: #2d8cf0;
   border-color: #2d8cf0;
 }
+.g-button-parimary:active {
+  background-color: #2d8cf0;
+  opacity: 0.9;
+}
 
 .g-button-success {
   background-color: #47cb89;
   border-color: #47cb89;
 }
+.g-button-success:active {
+  background-color: #47cb89;
+  opacity: 0.8;
+}
 
 .g-button-error {
   background-color: #ed4014;
   border-color: #ed4014;
+}
+.g-button-error:active {
+  background-color: #ed4014;
+  opacity: 0.8;
 }.icon {
   width: 1em;
   height: 1em;
