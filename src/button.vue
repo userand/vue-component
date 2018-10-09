@@ -1,6 +1,7 @@
 <template>
-    <button class="g-button"   :class="{[`icon-${iconPosition}`]: true}" >
-        <g-icon v-if="icon" :name="icon" ></g-icon>
+    <button @click="$emit('click')" class="g-button"  :class="{[`g-button-${type} icon-${iconPosition}`]: true}" >
+        <g-icon v-if="icon && !loading" :name="icon"></g-icon>
+        <g-icon v-if="loading" class="loading icon" name="loading" ></g-icon>
         <div class="content"> 
             <slot></slot> 
         </div>  
@@ -11,6 +12,14 @@
     export default {
         props: {
             icon: {},
+            type:{
+                type:String,
+                default:'parimary'
+            },
+            loading:{
+                type:Boolean,
+                default:false
+            },
             iconPosition: {
                 type: String,
                 default: 'left',
@@ -24,6 +33,14 @@
 
 <style lang="scss">
 
+    @keyframes spin{
+        0%{
+            transform: rotate(0deg)
+        }
+        100%{
+            transform: rotate(360deg)
+        }
+    }
     .g-button {
         height: var(--button-height);
         padding: 0 1em;
@@ -34,10 +51,7 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
-
-        &:hover {
-            border-color: var(--border-color-hover);
-        }
+        color: #fff;
 
         &:active {
             background-color: var(--button-active-bg);
@@ -56,6 +70,10 @@
             margin-right: .1em;
         }
 
+        >.loading {
+            animation: spin 1s infinite linear;
+        }
+
         &.icon-right {
             >.content {
                 order: 1;
@@ -68,5 +86,22 @@
             }
         }
     }
+
+    .g-button-parimary{
+        background-color: #2d8cf0;
+        border-color:#2d8cf0;
+    }
+
+    .g-button-success{
+        background-color: #47cb89;
+        border-color:#47cb89;
+    }
+
+    .g-button-error{
+        background-color: #ed4014;
+        border-color:#ed4014;
+    }
+
+
 
 </style>
