@@ -1,54 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div id="app">
-
         <div style="margin:20px;">
 
-            <g-row>
-                <g-col span="12">1</g-col>
-                <g-col span="12">2</g-col>
+            <g-row gutter="20"  >
+                <g-col span="6" xs="24" sm="8" md="9"  xl="8"  xxl="sss"  >
+                    <div class="demo">111</div>
+                </g-col>
+                <g-col span="8" xs="24" sm="8" md="6"  xl="9"  xxl="8" >
+                    <div class="demo">222</div>
+                </g-col>
+                <g-col span="10" xs="24" sm="8" md="9" xl="7"  xxl="8" >
+                        <div class="demo">333</div>
+                </g-col>
             </g-row>
 
-            <g-row>
-                <g-col span="2">1</g-col>
-                <g-col span="12">2</g-col>
-                <g-col span="10">2</g-col>
+            <g-row gutter="20">
+                <g-col span="2">
+                    <div class="demo">111</div>
+                </g-col>
+                <g-col span="12">
+                    <div class="demo">111</div>
+                </g-col>
+                <g-col span="10">
+                    <div class="demo">111</div>
+                </g-col>
             </g-row>
 
-            <g-row>
-                <g-col span="2"  offset="1" >1</g-col>
-                <g-col span="12" offset="2">2</g-col>
-                <g-col span="10" offset="1">2</g-col>
-            </g-row>       
-
+            <g-row gutter="20">
+                <g-col span="2">
+                    <div class="demo">111</div>
+                </g-col>
+                <g-col span="12">
+                    <div class="demo">111</div>
+                </g-col>
+                <g-col span="10">
+                    <div class="demo">111</div>
+                </g-col>
+            </g-row>
         </div>
 
         <div style="margin:20px;">
             <g-input :disabled="true" placeholder=""></g-input>
             <g-input v-model="test" placeholder="请输入"></g-input>
             {{test}}
-        </div>  
-        
+        </div>
+
         <div style="margin:20px;">
-            <g-button @click="loading1=!loading1" :loading="loading1" type="success"  icon="download" icon-position="right"> 按钮 </g-button>
-            <g-button @click="loading2=!loading2" :loading="loading2" type="error"   icon="left" icon-position="left">  按钮 </g-button>
-            <g-button @click="loading3=!loading3" :loading="loading3" type="parimary"  icon="right" icon-position="left"> 按钮 </g-button>
-            
+            <g-button @click="loading1=!loading1" :loading="loading1" type="success" icon="download" icon-position="right">
+                按钮 </g-button>
+            <g-button @click="loading2=!loading2" :loading="loading2" type="error" icon="left" icon-position="left"> 按钮
+            </g-button>
+            <g-button @click="loading3=!loading3" :loading="loading3" type="parimary" icon="right" icon-position="left">
+                按钮 </g-button>
+
             <g-button-group>
-                <g-button  icon="left" icon-position="left"> 上一页 </g-button>
+                <g-button icon="left" icon-position="left"> 上一页 </g-button>
                 <g-button> 更多 </g-button>
-                <g-button  icon="right" icon-position="right">  下一页 </g-button>
+                <g-button icon="right" icon-position="right"> 下一页 </g-button>
             </g-button-group>
         </div>
-        
+
     </div>
-    
+
     <style>
+        .demo {
+            background: #09f;
+            color: #fff;
+        }
 
         * {
             margin: 0;
@@ -56,13 +83,14 @@
             box-sizing: border-box;
             outline: none
         }
+
         html {
             --button-height: 32px;
             --font-size: 14px;
             --font-size: 14px;
             --border-color: #dcdee2;
-            --border-radius:5px;
-            --border-color-hover:#0099ff;
+            --border-radius: 5px;
+            --border-color-hover: #0099ff;
         }
     </style>
     <script src="./src/app.js"></script>

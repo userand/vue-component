@@ -11690,7 +11690,29 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+var _default = {
+  props: {
+    gutter: {
+      type: [Number, String]
+    }
+  },
+  computed: {
+    rowStyle: function rowStyle() {
+      var gutter = this.gutter;
+      return {
+        marginLeft: -gutter / 2 + 'px',
+        marginRight: -gutter / 2 + 'px'
+      };
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$children.forEach(function (item) {
+      item.gutter = _this.gutter;
+    });
+  }
+};
 exports.default = _default;
         var $2aefd7 = exports.default || module.exports;
       
@@ -11704,7 +11726,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "g-row" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "g-row", style: _vm.rowStyle },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11750,12 +11777,57 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
+  data: function data() {
+    return {
+      gutter: 0
+    };
+  },
+  computed: {
+    colStyle: function colStyle() {
+      var gutter = this.gutter;
+      return {
+        paddingLeft: gutter / 2 + 'px',
+        paddingRight: gutter / 2 + 'px'
+      };
+    },
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset,
+          xs = this.xs,
+          sm = this.sm,
+          md = this.md,
+          lg = this.lg,
+          xl = this.xl,
+          xxl = this.xxl;
+      return ["g-col-".concat(span), offset && "g-offset-".concat(offset), xs && "g-col-xs-".concat(xs), sm && "g-col-sm-".concat(sm), md && "g-col-md-".concat(md), lg && "g-col-lg-".concat(lg), xl && "g-col-xl-".concat(xl), xxl && "g-col-xxl-".concat(xxl)];
+    }
+  },
   props: {
     span: {
       type: [Number, String]
     },
     offset: {
+      type: [Number, String]
+    },
+    xs: {
+      type: [Number, String]
+    },
+    sm: {
+      type: [Number, String]
+    },
+    md: {
+      type: [Number, String]
+    },
+    lg: {
+      type: [Number, String]
+    },
+    xl: {
+      type: [Number, String]
+    },
+    xxl: {
       type: [Number, String]
     }
   },
@@ -11774,10 +11846,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    staticClass: "g-col",
-    class: "g-col-" + _vm.span + " g-offset-" + _vm.offset
-  })
+  return _c(
+    "div",
+    { staticClass: "g-col", class: _vm.colClass, style: _vm.colStyle },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11879,7 +11953,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10553" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10415" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
